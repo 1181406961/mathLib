@@ -25,6 +25,7 @@ class Vector:
         """向量减法，返回结果向量"""
         assert len(self) == len(another), \
             "Error in subtracting. Length of vectors must be same."
+        return Vector((a - b for a, b in zip(self, another)))
 
     def norm(self):
         """返回向量的模"""
@@ -72,6 +73,6 @@ class Vector:
         return "({})".format(", ".join(str(e) for e in self._values))
 
     def __eq__(self, other: 'Vector'):
-        if len(self) != len(other):
+        if not isinstance(other, Vector) or len(self) != len(other):
             return False
         return all(a == b for a, b in zip(self, other))
