@@ -20,13 +20,13 @@ class Vector:
         """向量加法，返回结果向量"""
         assert len(self) == len(another), \
             "Error in adding. Length of vectors must be same."
-        return Vector((a + b for a, b in zip(self, another)))
+        return Vector(a + b for a, b in zip(self, another))
 
     def __sub__(self, another):
         """向量减法，返回结果向量"""
         assert len(self) == len(another), \
             "Error in subtracting. Length of vectors must be same."
-        return Vector((a - b for a, b in zip(self, another)))
+        return Vector(a - b for a, b in zip(self, another))
 
     def norm(self):
         """返回向量的模"""
@@ -46,7 +46,7 @@ class Vector:
 
     def __mul__(self, k):
         """返回数量乘法的结果向量：self * k"""
-        return Vector((e * k for e in self))
+        return Vector(e * k for e in self)
 
     def __rmul__(self, k):
         """返回数量乘法的结果向量：k * self"""
@@ -54,7 +54,7 @@ class Vector:
 
     def __truediv__(self, k):
         """返回数量除法的结果向量：self / k"""
-        return Vector((e / k for e in self))
+        return Vector(e / k for e in self)
 
     def __pos__(self):
         """返回向量取正的结果向量"""
