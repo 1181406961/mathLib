@@ -29,6 +29,7 @@ class Vector:
 
     def norm(self):
         """返回向量的模"""
+        return math.sqrt(sum(e ** 2 for e in self))
 
     def normalize(self):
         """返回向量的单位向量"""

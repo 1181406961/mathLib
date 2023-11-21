@@ -1,7 +1,10 @@
 ''''
 测试向量相关的方法
 '''
+import math
+
 from Vector import Vector
+from globals import EPSILON
 
 
 def test_add():
@@ -29,3 +32,8 @@ def test_eq():
     '''
     assert (Vector([1, 1]) == None) is False
     assert (Vector([1, 1]) == [1, 1]) is False
+
+
+def test_norm():
+    v = Vector([2, 2])
+    assert (v.norm() - math.sqrt(2**2+2**2)) < EPSILON
