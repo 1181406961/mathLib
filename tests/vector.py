@@ -36,4 +36,9 @@ def test_eq():
 
 def test_norm():
     v = Vector([2, 2])
-    assert (v.norm() - math.sqrt(2**2+2**2)) < EPSILON
+    assert abs(v.norm() - math.sqrt(2 ** 2 + 2 ** 2)) < EPSILON
+
+
+def test_normalize():
+    v = Vector([2, 2])
+    assert abs(v.normalize().norm() - 1) < EPSILON

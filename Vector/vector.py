@@ -33,8 +33,10 @@ class Vector:
 
     def normalize(self):
         """返回向量的单位向量"""
-        if self.norm() < EPSILON:
+        norm = self.norm()
+        if norm < EPSILON:
             raise ZeroDivisionError("Normalize error! norm is zero.")
+        return Vector(self._values) / norm
 
     def dot(self, another):
         """向量点乘，返回结果标量"""
@@ -49,6 +51,7 @@ class Vector:
 
     def __truediv__(self, k):
         """返回数量除法的结果向量：self / k"""
+        return Vector((e / k for e in self))
 
     def __pos__(self):
         """返回向量取正的结果向量"""
