@@ -14,6 +14,7 @@ class Vector:
     @classmethod
     def zero(cls, dim):
         """返回一个dim维的零向量"""
+        return Vector(0 for _ in range(dim))
 
     def __add__(self, another: 'Vector'):
         """向量加法，返回结果向量"""
@@ -45,9 +46,11 @@ class Vector:
 
     def __mul__(self, k):
         """返回数量乘法的结果向量：self * k"""
+        return Vector((e * k for e in self))
 
     def __rmul__(self, k):
         """返回数量乘法的结果向量：k * self"""
+        return self * k
 
     def __truediv__(self, k):
         """返回数量除法的结果向量：self / k"""
@@ -55,9 +58,11 @@ class Vector:
 
     def __pos__(self):
         """返回向量取正的结果向量"""
+        return 1 * self
 
     def __neg__(self):
         """返回向量取负的结果向量"""
+        return -1 * self
 
     def __iter__(self):
         """返回向量的迭代器"""

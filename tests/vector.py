@@ -42,3 +42,24 @@ def test_norm():
 def test_normalize():
     v = Vector([2, 2])
     assert abs(v.normalize().norm() - 1) < EPSILON
+
+
+def test_mul_k():
+    v = Vector([2, 2])
+    assert (v * 2) == Vector([4, 4])
+    assert (2 * v) == Vector([4, 4])
+
+
+def test_pos():
+    v = Vector([1])
+    assert +v == Vector([1])
+
+
+def test_neg():
+    v = Vector([1])
+    assert -v == Vector([-1])
+
+
+def test_zero_norm():
+    zero = Vector.zero(2)
+    assert zero == Vector([0, 0])
